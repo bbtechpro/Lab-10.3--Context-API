@@ -1,17 +1,14 @@
 import { TaskItem } from '../TaskItem/TaskItem';
-import type { TaskListProps } from '../../types/index';
+import { useTodos } from '../../context/TodoContext';
 import styles from './TaskList.module.css';
 
-function TaskList({ tasks, onToggle, onDelete }: TaskListProps) {
+function TaskList() {
+  const { filteredTasks } = useTodos();
+
   return (
     <ul className={styles.taskList}>
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          onToggle={onToggle}
-          onDelete={onDelete}
-        />
+      {filteredTasks.map((task) => (
+        <TaskItem key={task.id} task={task} />
       ))}
     </ul>
   );
