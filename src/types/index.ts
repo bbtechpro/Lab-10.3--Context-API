@@ -20,6 +20,10 @@ export interface TaskItemProps {
   onDelete: (taskId: string) => void;
 }
 
+export interface TaskFormProps {
+  onAddTask: (task: { name: string; priority: TaskPriority }) => void;
+}
+
 export interface TaskFilterProps {
   currentFilter: FilterStatus;
   onFilterChange: (filter: FilterStatus) => void;
