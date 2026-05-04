@@ -8,23 +8,6 @@ export interface Task {
   priority: TaskPriority;
 }
 
-export interface TaskListProps {
-  tasks: Task[];
-  onToggle: (taskId: string) => void;
-  onDelete: (taskId: string) => void;
-}
-
 export interface TaskItemProps {
   task: Task;
-  onToggle: (taskId: string) => void;
-  onDelete: (taskId: string) => void;
-}
-
-export interface TaskFormProps {
-  onAddTask: (task: { name: string; priority: TaskPriority }) => void;
-}
-
-export interface TaskFilterProps {
-  currentFilter: FilterStatus;
-  onFilterChange: (filter: FilterStatus) => void;
 }
