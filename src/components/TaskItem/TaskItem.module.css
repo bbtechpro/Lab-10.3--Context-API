@@ -6,8 +6,9 @@
   margin-bottom: 8px;
   border-radius: 8px;
   border-left: 5px solid var(--priority-color);
-  background-color: #ffffff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--input-bg, #ffffff);
+  color: var(--text-color, #111827);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
 }
 
 .taskItem:hover {
@@ -20,7 +21,7 @@
 }
 
 .completed {
-  background-color: #f3f4f6;
+  background-color: var(--border-color, #f3f4f6);
   text-decoration: line-through;
   opacity: 0.6;
 }
