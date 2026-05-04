@@ -1,7 +1,9 @@
-import type { TaskFilterProps, FilterStatus } from '../../types/index';
+import type { FilterStatus } from '../../types/index';
+import { useTodos } from '../../context/TodoContext';
 import styles from './TaskFilter.module.css';
 
-const TaskFilter = ({ currentFilter, onFilterChange }: TaskFilterProps) => {
+const TaskFilter = () => {
+  const { filter: currentFilter, setFilter } = useTodos();
   const filters: FilterStatus[] = ['all', 'active', 'completed'];
 
   return (
@@ -9,7 +11,7 @@ const TaskFilter = ({ currentFilter, onFilterChange }: TaskFilterProps) => {
       {filters.map((filter) => (
         <button
           key={filter}
-          onClick={() => onFilterChange(filter)}
+          onClick={() => setFilter(filter)}
           className={`${styles.filterButton} ${
             currentFilter === filter ? styles.filterButtonActive : ''
           }`}
