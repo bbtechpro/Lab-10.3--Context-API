@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import type { TaskPriority } from '../../types';
+import { useTodos } from '../../context/TodoContext';
 import styles from './TaskForm.module.css';
 
-interface TaskFormProps {
-  onAddTask: (task: { name: string; priority: TaskPriority }) => void;
-}
-
-export const TaskForm = ({ onAddTask }: TaskFormProps) => {
+export const TaskForm = () => {
+  const { addTask } = useTodos();
   const [name, setName] = useState('');
   const [priority, setPriority] = useState<TaskPriority>('medium');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
-      onAddTask({ name: name.trim(), priority });
+      addTask({ name: name.trim(), priority });
       setName('');
       setPriority('medium');
     }
